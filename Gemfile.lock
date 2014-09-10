@@ -1,0 +1,17 @@
+GIT
+  remote: git://github.com/minimagick/minimagick.git
+  revision: 0c8ff6fed81327a1a350c134c1aac14993724de2
+  specs:
+    mini_magick (3.8.0)
+      subexec (~> 0.2.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    subexec (0.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mini_magick!

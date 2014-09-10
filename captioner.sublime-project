@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+  "build_systems": [
+    {
+      "name": "Make captions",
+      "working_dir": "$project_path",
+      "shell_cmd": "ruby caption.rb"
+    }
+  ]
+}
