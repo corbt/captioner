@@ -28,8 +28,9 @@ build/
 .rvmrc
 
 *.sublime-workspace
-media/
-out/
-config.yml
+*.yml
+
+*_media
+*_out
 
 .DS_Store

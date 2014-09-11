@@ -10,7 +10,7 @@
     {
       "name": "Make captions",
       "working_dir": "$project_path",
-      "shell_cmd": "ruby caption.rb"
+      "shell_cmd": "ruby caption.rb sm_family.yml"
     }
   ]
 }
