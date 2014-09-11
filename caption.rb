@@ -27,7 +27,7 @@ def process_image img_data
     '-stroke black',
     '-strokewidth 10',
     '-pointsize 60',
-    # '-font helvetica',
+    '-font AvenirLTStd-Medium-1',
     '-annotate', "0 \"#{caption}\"",
     '-background none',
     '-shadow 300x10+0+0',
@@ -49,6 +49,12 @@ def process_video video_data
   copy_file video_data['video'], video_data['index']
 end
 
+def process_text text_data
+  text = word_wrap(text_data['text'], line_width: 40)
+  out_file = File.join($config['out_dir'], "#{text_data['index']}.png")
+  puts `convert -size 2560x1600 xc:white -gravity center -pointsize 120 -fill '#333333' -font AvenirLTStd-Medium-1 -annotate 0 "#{text}" #{out_file}`
+end
+
 $config = YAML.load_file ARGF.argv.first
 $config['in_dir'] = $config['in_dir'] || "_media"
 $config['out_dir'] = $config['out_dir'] || "#{$config['in_dir']}_out"
@@ -60,4 +66,5 @@ $config['media'].each_with_index do |media_data, i|
   media_data['index'] = i 
   process_image(media_data) if media_data.has_key? 'image'
   process_video(media_data) if media_data.has_key? 'video'
+  process_text(media_data) if media_data.has_key? 'text'
 end
