@@ -18,7 +18,9 @@ There are no gem dependencies for this utility. However, it does depend on [imag
 
 Currently there is absolutely 0 attempt to be responsive. This was designed to caption screenshots on my 13" Retina Macbook Pro and captions are placed using absolute coordinates, so images at alternative resolutions are unlikely to work well with the captioning functionality.
 
-Example config file: 
+## Config File
+
+### Example
 
 ```yaml
 ---
@@ -39,6 +41,8 @@ media:
   - image: fh_admin.png
     caption: The funeral home admin interface allows you to edit memorials and export data.
 ```
+
+### Description
 
  * `in_dir` [optional] the root directory your media is found in. By default this is "media"
  * `out_dir` [optional] the directory you wish your slide deck to be saved to. Any existing files in this directory will be deleted. Default is `in_dir` with the postfix `_out`.
