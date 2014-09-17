@@ -30,7 +30,7 @@ def process_image img_data
     '-font AvenirLTStd-Medium-1',
     '-annotate', "0 \"#{caption}\"",
     '-background none',
-    '-shadow 300x10+0+0',
+    '-shadow 300x20+0+0',
     '+repage',
     '-stroke none',
     '-fill', 'white',
@@ -52,7 +52,7 @@ end
 def process_text text_data
   text = word_wrap(text_data['text'], line_width: 40)
   out_file = File.join($config['out_dir'], "#{text_data['index']}.png")
-  puts `convert -size 2560x1600 xc:white -gravity center -pointsize 120 -fill '#333333' -font AvenirLTStd-Medium-1 -annotate 0 "#{text}" #{out_file}`
+  `convert -size 2560x1600 xc:white -gravity center -pointsize 120 -fill '#333333' -font AvenirLTStd-Medium-1 -annotate 0 "#{text}" #{out_file}`
 end
 
 $config = YAML.load_file ARGF.argv.first
@@ -63,6 +63,7 @@ FileUtils.rm_rf $config['out_dir']
 FileUtils.mkdir_p $config['out_dir']
 
 $config['media'].each_with_index do |media_data, i|
+  puts "Writing file #{i}"
   media_data['index'] = i 
   process_image(media_data) if media_data.has_key? 'image'
   process_video(media_data) if media_data.has_key? 'video'
