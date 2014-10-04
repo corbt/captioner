@@ -18,7 +18,10 @@ def copy_file name, index
 end
 
 def process_image img_data
-  copy_file img_data['image'], img_data['index'] and return unless img_data['caption']
+  if !img_data['caption']
+    copy_file img_data['image'], img_data['index']
+    return
+  end
 
   caption = word_wrap img_data['caption']
   options = [
