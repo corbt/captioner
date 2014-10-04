@@ -28,6 +28,9 @@ Currently there is absolutely 0 attempt to be responsive. This was designed to c
 in_dir: media
 out_dir: media_out
 
+format:
+  image: jpg
+
 media:
   - image: homepage.png
     caption: Memorials are public and searchable from the homepage.
@@ -44,8 +47,9 @@ media:
 
 ### Description
 
- * `in_dir` [optional] the root directory your media is found in. By default this is "media"
- * `out_dir` [optional] the directory you wish your slide deck to be saved to. Any existing files in this directory will be deleted. Default is `in_dir` with the postfix `_out`.
+ * `in_dir` [optional] the root directory your media is found in. By default this is "_media"
+ * `out_dir` [optional] the directory you wish your slide deck to be saved to. Any existing files in this directory will be deleted. Default is `_media_out`.
+ * `format` [optional] the default export format for images. Can be any format supported by the imagemagick `convert` utility.
  * `media`: An in-order list of media files (video or audio) to use in the slide deck
  * `image` or `video`: the name/path to the image or video within the input directory
  * `caption` [image only] the text you wish to 
